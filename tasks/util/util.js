@@ -59,7 +59,8 @@ exports.fontsSrcsMap = {
 exports.cssFilePrefixes = {
 	_default: '',
 	sass: '_',
-	scss: '_'
+	scss: '_',
+	styl: '_'
 };
 
 /**
