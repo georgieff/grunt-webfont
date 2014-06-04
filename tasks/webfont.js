@@ -65,6 +65,7 @@ module.exports = function(grunt) {
 		var o = {
 			fontBaseName: options.font || 'icons',
 			destCss: params.destCss || params.dest,
+			partialPrefix: options.partialPrefix === true,
 			dest: params.dest,
 			relativeFontPath: options.relativeFontPath,
 			addHashes: options.hashes !== false,
@@ -232,6 +233,9 @@ module.exports = function(grunt) {
 			}
 			o.cssTemplate = readTemplate(o.template, o.syntax, ext);
 			var cssFilePrefix = option(wf.cssFilePrefixes, o.stylesheet);
+			if (o.partialPrefix) {
+				cssFilePrefix = '_';
+			}
 			var cssFile = path.join(o.destCss, cssFilePrefix + o.fontBaseName + '.' + o.stylesheet);
 			var cssContext = _.extend(o, {
 				iconsStyles: true
